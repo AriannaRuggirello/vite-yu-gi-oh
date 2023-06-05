@@ -1,10 +1,17 @@
 <script>
+import { store } from './../store.js';
+
 import AppCardDetail from './AppCardDetail.vue'
 
 export default {
     name: "AppMain",
     components: {
         AppCardDetail,
+    },
+    data() {
+        return {
+            store,
+        }
     }
 
 }
@@ -16,13 +23,17 @@ export default {
             <option value="0">Alien</option>
         </select>
 
+        <div class="banner">
+            <span>Found 20 cards</span>
+        </div>
         <section class="cards">
-            <AppCardDetail />
 
-
-
+            <!-- andiamo a prendere ogni figurina nell'array partito vuoto ma con la chiamata axios si riempie -->
+            <AppCardDetail v-for="figure in store.cards" :details="figure" />
 
         </section>
+
+
     </div>
 </template>
 
@@ -36,21 +47,22 @@ select {
     text-align: center;
 }
 
+.banner {
+    color: white;
+    font-weight: bold;
+    background-color: #212529;
+    padding: 20px;
+    margin-top: 30px;
+}
+
 .cards {
     @include content-flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 30px;
+
     background-color: white;
 
 
-
-    .card {
-        width: calc(100% / 5);
-        margin: 5px;
-        height: 150px;
-        background-color: #d48f38;
-    }
 
 }
 </style>

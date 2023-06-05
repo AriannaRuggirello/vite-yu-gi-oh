@@ -21,7 +21,7 @@ export default {
         // che cosa deve ritornare la chiamata
         .then(res => {
           // cards array vuoto 
-          store.cards = res.data.results
+          store.cards = res.data.data
 
         })
         // gestire eventuali errori

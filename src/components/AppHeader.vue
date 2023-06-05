@@ -18,7 +18,8 @@ export default {
 nav {
     @include content-flex;
     background-color: white;
-    padding: 20px 0;
+    padding: 20px;
+
 
     span {
         font-size: x-large;

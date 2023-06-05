@@ -1,14 +1,20 @@
 <script>
 export default {
-    name: "AppCardDetail"
+    name: "AppCardDetail",
+    props: {
+        details: Object
+    }
 }
 </script>
 
 <template>
     <div class="card">
-        <img src="" alt="immagine">
-        <h3>nome</h3>
-        <h5>tipologia</h5>
+        <img :src="details.card_images[0].image_url_small" alt="immagine">
+
+        <h5>{{ details.name }}</h5>
+        <span>{{ details.archetype }}</span>
+
+
     </div>
 </template>
 
@@ -17,9 +23,20 @@ export default {
 @use '../style/partials/mixin.scss' as *;
 
 .card {
-    width: calc(100% / 5);
-    margin: 5px;
-    height: 150px;
+    width: 168px;
+    height: 350px;
+    text-align: center;
+    line-height: 25px;
+    margin: 15px;
     background-color: #d48f38;
+
+
+    h5 {
+        text-transform: uppercase;
+        color: white;
+    }
+
+
+
 }
 </style>
