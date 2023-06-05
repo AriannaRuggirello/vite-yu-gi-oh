@@ -1,6 +1,12 @@
 <script>
+import AppCardDetail from './AppCardDetail.vue'
+
 export default {
-    name: "AppMain"
+    name: "AppMain",
+    components: {
+        AppCardDetail,
+    }
+
 }
 </script>
 
@@ -11,53 +17,9 @@ export default {
         </select>
 
         <section class="cards">
-            <div class="card">
-                <img src="" alt="immagine">
-                <h3>nome</h3>
-                <h5>tipologia</h5>
-            </div>
+            <AppCardDetail />
 
-            <div class="card">
-                <img src="" alt="immagine">
-                <h3>nome</h3>
-                <h5>tipologia</h5>
-            </div>
 
-            <div class="card">
-                <img src="" alt="immagine">
-                <h3>nome</h3>
-                <h5>tipologia</h5>
-            </div>
-
-            <div class="card">
-                <img src="" alt="immagine">
-                <h3>nome</h3>
-                <h5>tipologia</h5>
-            </div>
-
-            <div class="card">
-                <img src="" alt="immagine">
-                <h3>nome</h3>
-                <h5>tipologia</h5>
-            </div>
-
-            <div class="card">
-                <img src="" alt="immagine">
-                <h3>nome</h3>
-                <h5>tipologia</h5>
-            </div>
-
-            <div class="card">
-                <img src="" alt="immagine">
-                <h3>nome</h3>
-                <h5>tipologia</h5>
-            </div>
-
-            <div class="card">
-                <img src="" alt="immagine">
-                <h3>nome</h3>
-                <h5>tipologia</h5>
-            </div>
 
 
         </section>
