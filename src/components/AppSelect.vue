@@ -37,8 +37,8 @@ export default {
 
 <template>
     <!-- inserisco trim per eliminare gli spazi e il v model per agganciarlo allo store -->
-    <select v-model="store.getOption">
-        <option v-for="option in store.archetypesArr" @click="$emit('myArchetype')">{{ option.archetype_name }}
+    <select v-model="store.searchOption" @change="$emit('myArchetype')">
+        <option v-for="option in store.archetypesArr" :value="option.archetype_name">{{ option.archetype_name }}
         </option>
 
 

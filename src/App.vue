@@ -21,27 +21,29 @@ export default {
     getCards() {
       // parametrizzare la chiamata col select
       let myUrl = store.apiURL
-      // se il select è diverso da vuoto
-      // if (store.selectSearch !== "") {
-      // myUrl +=  backtick ?${store.apiNameParameter}=${store.selectSearch} come js vanilla
+      // se il valore che cerco non è vuoto
+      if (store.searchOption !== "") {
+        // allora aggiungo chiave e valore
+        myUrl += `&archetype=${store.searchOption}`
 
-      // }
-      // chiamata axios
-      axios.get(myUrl)
-        // che cosa deve ritornare la chiamata
-        .then(res => {
-          // cards array vuoto 
-          store.cards = res.data.data;
+        // }
+        // chiamata axios
+        axios.get(myUrl)
+          // che cosa deve ritornare la chiamata
+          .then(res => {
+            // cards array vuoto 
+            store.cards = res.data.data;
 
-        })
-        // gestire eventuali errori
-        .catch(err => {
-          console.log(err);
-        })
+          })
+          // gestire eventuali errori
+          .catch(err => {
+            console.log(err);
+          })
+      }
+    },
+    created() {
+      this.getCards();
     }
-  },
-  created() {
-    this.getCards();
   }
 }
 </script>
@@ -49,7 +51,7 @@ export default {
 <template>
   <AppHeader />
   <main class="container">
-    <AppSelect />
+    <AppSelect @myArchetype="getCards" />
     <AppMain />
   </main>
   <!-- // aggiungo l'evento creato in select @nome del click = getcards -->
