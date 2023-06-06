@@ -15,13 +15,13 @@ export default {
     }
   },
   methods: {
-    getCharacters() {
+    getCards() {
       // chiamata axios
       axios.get(store.apiURL)
         // che cosa deve ritornare la chiamata
         .then(res => {
           // cards array vuoto 
-          store.cards = res.data.data
+          store.cards = res.data.data;
 
         })
         // gestire eventuali errori
@@ -31,7 +31,7 @@ export default {
     }
   },
   created() {
-    this.getCharacters();
+    this.getCards();
   }
 }
 </script>
