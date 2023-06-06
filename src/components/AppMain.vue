@@ -2,10 +2,12 @@
 import { store } from './../store.js';
 
 import AppCardDetail from './AppCardDetail.vue'
+import AppSelect from './AppSelect.vue'
 
 export default {
     name: "AppMain",
     components: {
+        AppSelect,
         AppCardDetail,
     },
     data() {
@@ -19,12 +21,11 @@ export default {
 
 <template>
     <div class="container">
-        <select>
-            <option value="0">Alien</option>
-        </select>
+
+        <AppSelect />
 
         <div class="banner">
-            <span>Found 20 cards</span>
+            <span>Found {{ store.cards.length }} cards</span>
         </div>
         <section class="cards">
 
@@ -41,11 +42,7 @@ export default {
 @use '../style/partials/variables.scss' as *;
 @use '../style/partials/mixin.scss' as *;
 
-select {
-    width: 130px;
-    margin-top: 30px;
-    text-align: center;
-}
+
 
 .banner {
     color: white;
