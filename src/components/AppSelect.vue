@@ -36,9 +36,10 @@ export default {
 </script>
 
 <template>
-    <!-- inserisco trim per eliminare gli spazi e il v model per agganciarlo allo store v-model.trim="store.selectSearch"-->
-    <select>
-        <option v-for="option in store.archetypesArr">{{ option.archetype_name }}</option>
+    <!-- inserisco trim per eliminare gli spazi e il v model per agganciarlo allo store -->
+    <select v-model="store.getOption">
+        <option v-for="option in store.archetypesArr" @click="$emit('myArchetype')">{{ option.archetype_name }}
+        </option>
 
 
     </select>
