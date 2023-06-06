@@ -13,7 +13,7 @@ export default {
 
         <h5>{{ details.name }}</h5>
         <span v-if="details.archetype">{{ details.archetype }}</span>
-        <span v-else="">Non definito</span>
+        <span v-else>Non definito</span>
 
 
     </div>

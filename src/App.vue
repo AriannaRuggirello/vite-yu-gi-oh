@@ -3,10 +3,13 @@ import { store } from './store.js';
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
+import AppSelect from './components/AppSelect.vue'
+
 
 export default {
   components: {
     AppHeader,
+    AppSelect,
     AppMain,
   },
   data() {
@@ -16,8 +19,15 @@ export default {
   },
   methods: {
     getCards() {
+      // parametrizzare la chiamata col select
+      let myUrl = store.apiURL
+      // se il select è diverso da vuoto
+      // if (store.selectSearch !== "") {
+      // myUrl +=  backtick ?${store.apiNameParameter}=${store.selectSearch} come js vanilla
+
+      // }
       // chiamata axios
-      axios.get(store.apiURL)
+      axios.get(myUrl)
         // che cosa deve ritornare la chiamata
         .then(res => {
           // cards array vuoto 
@@ -38,7 +48,11 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain />
+  <main class="container">
+    <AppSelect />
+    <AppMain />
+  </main>
+  <!-- // aggiungo l'evento creato in select @nome del click = getcards -->
 </template>
 
 <style lang="scss">

@@ -2,13 +2,12 @@
 import { store } from './../store.js';
 
 import AppCardDetail from './AppCardDetail.vue'
-import AppSelect from './AppSelect.vue'
 
 export default {
     name: "AppMain",
     components: {
-        AppSelect,
         AppCardDetail,
+
     },
     data() {
         return {
@@ -20,22 +19,15 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-
-        <AppSelect />
-
-        <div class="banner">
-            <span>Found {{ store.cards.length }} cards</span>
-        </div>
-        <section class="cards">
-
-            <!-- andiamo a prendere ogni figurina nell'array partito vuoto ma con la chiamata axios si riempie -->
-            <AppCardDetail v-for="figure in store.cards" :details="figure" />
-
-        </section>
-
-
+    <div class="banner">
+        <span>Found {{ store.cards.length }} cards</span>
     </div>
+    <section class="cards">
+
+        <!-- andiamo a prendere ogni figurina nell'array partito vuoto ma con la chiamata axios si riempie -->
+        <AppCardDetail v-for="figure in store.cards" :details="figure" />
+
+    </section>
 </template>
 
 <style lang="scss" scoped>
